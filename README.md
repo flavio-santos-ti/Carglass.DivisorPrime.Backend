@@ -1,4 +1,4 @@
-# 📘 Carglass.DivisorPrime.Api
+# ![Logo](assets/images/logo.png) Carglass.DivisorPrime.Api
 
 ## 📝 Sobre o Projeto
 
