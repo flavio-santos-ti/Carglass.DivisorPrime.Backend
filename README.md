@@ -1,88 +1,57 @@
-# Carglass.DivisorPrime
+# 📘 Carglass.DivisorPrime.Api
 
-Carglass.DivisorPrime é um projeto desenvolvido para calcular divisores e divisores primos de números inteiros fornecidos pelo usuário. Ele é composto por uma API desenvolvida em .NET 8 e um cliente console que consome essa API.
+## 📝 Sobre o Projeto
 
-## 🔧️ Tecnologias utilizadas
-- **ASP.NET Core 8**: Para o desenvolvimento da API.
-- **xUnit**: Para testes unitários.
-- **Moq**: Para mocks em testes.
-- **Middleware**: Para logging de requisições.
-- **Dependency Injection**: Configuração robusta para gerenciar dependências.
+O **Carglass.DivisorPrime.Api** é uma API backend desenvolvida para calcular os divisores e divisores primos de um número informado. O projeto foi estruturado com foco em qualidade, seguindo boas práticas de desenvolvimento, princípios de Clean Code e padrões de design.
 
-## 📁 Estrutura do Projeto
-```plaintext
-Carglass
-├── Backend
-│   ├── Carglass.DivisorPrime.Api
-│   │   ├── Controllers
-│   │   │   └── DivisorController.cs
-│   │   ├── Middlewares
-│   │   │   └── RequestLoggingMiddleware.cs
-│   ├── Carglass.DivisorPrime.Domain
-│   │   ├── Dtos
-│   │   │   └── DivisorDto.cs, DivisorsDto.cs, PrimeDivisorDto.cs, ResponseDto.cs
-│   │   ├── Enums
-│   │   │   └── ApiHttpStatusCode.cs
-│   ├── Carglass.DivisorPrime.Service
-│   │   ├── Services
-│   │   │   └── DivisorService.cs
-│   ├── Carglass.DivisorPrime.Mappers
-│   │   ├── Builders
-│   │   │   └── ResponseBuilder.cs
-```
+---
 
-## 📌 Funcionalidades
-- **GET /api/Divisor/{number?}**
-  - Retorna divisores e divisores primos de um número.
-  - Exemplo:
-    ```json
-    {
-      "isSuccess": true,
-      "message": "Operação realizada com sucesso",
-      "statusCode": 200,
-      "divisors": {
-        "number": 10,
-        "divisors": [1, 2, 5, 10],
-        "primeDivisors": [2, 5]
-      }
-    }
-    ```
+## 🛠️ Tecnologias Utilizadas
 
-## 🖥️ Como executar o projeto
-### Pré-requisitos
-- .NET 8 SDK instalado
-- Visual Studio ou Visual Studio Code configurado
+- **ASP.NET Core** para construção da API.
+- **Moq** para testes unitários.
+- **ILogger** para gerenciamento de logs.
+- **Swagger** para documentação interativa.
 
-### Passos
-1. Clone o repositório:
+---
+
+## 🏗️ Estrutura do Projeto
+
+Este projeto foi desenvolvido utilizando boas práticas de arquitetura, princípios de Clean Code e padrões de design para garantir qualidade, extensibilidade e manutenção simplificada. Abaixo estão os principais conceitos e padrões aplicados:
+
+### 🔗 Camadas e Separação de Preocupações
+
+- **Domain:** Contém DTOs e enums para transferência de dados e padronização de respostas.  
+- **Service:** Implementa lógica de negócios (manipuladores, validadores e serviços).  
+- **Mappers:** Centraliza a construção de respostas (ex.: `ResponseBuilder`).  
+- **API:** Gerencia configuração e integração, incluindo middlewares.
+
+### 🧩 Padrões de Design
+
+- **Injeção de Dependência:** Configurada em `DependencyInjection.cs` para desacoplamento e modularidade.  
+- **Service Layer:** Centraliza a lógica de negócios em serviços como `DivisorService`.  
+- **Builder Pattern:** Utilizado em `ResponseBuilder` para criação padronizada de respostas.  
+- **Strategy Pattern:** Aplicado aos manipuladores (`IDivisorHandler`, `IPrimeDivisorHandler`) para encapsular algoritmos.  
+- **Middleware:** `RequestLoggingMiddleware` para tratamento transversal de logs.
+
+### 🧼 Princípios de Clean Code
+
+- **Nominação Significativa:** Classes e métodos têm nomes descritivos e claros (ex.: `PrimeDivisorHandler.Handle`).  
+- **Código Simples e Modular:** Funções pequenas, focadas e sem duplicação de lógica.  
+- **Tratamento de Erros Elegante:** Respostas padronizadas para diferentes cenários, como validação e erros inesperados.
+
+### ✅ Boas Práticas de Desenvolvimento
+
+- **Testes Unitários:** Extensivamente implementados com mocks (`Moq`) para garantir cobertura e isolamento de dependências.  
+- **Observabilidade:** Uso de `ILogger` para logs detalhados de eventos importantes.  
+- **Enums para Padronização:** Ex.: `ApiHttpStatusCode` para uniformizar status HTTP.
+
+Esses elementos combinados garantem que o projeto seja robusto, fácil de entender, testar e expandir.
+
+---
+
+## ⚙️ Configuração do Projeto
+
+1. Clone este repositório:
    ```bash
-   git clone <url-do-repositorio>
-   cd Carglass/Backend
-   ```
-2. Restaure as dependências:
-   ```bash
-   dotnet restore
-   ```
-3. Execute a API:
-   ```bash
-   dotnet run --project Carglass.DivisorPrime.Api
-   ```
-4. Acesse a aplicação:
-   - API: [http://localhost:5000/api/Divisor/{number}](http://localhost:5000/api/Divisor/{number})
-
-## 🤦️‍♂️ Testes
-Para rodar os testes:
-```bash
-dotnet test
-```
-
-## 🖋️ Contribuição
-1. Faça um fork do repositório.
-2. Crie uma branch para sua feature:
-   ```bash
-   git checkout -b minha-feature
-   ```
-3. Submeta um Pull Request.
-
-## 🔖 Licença
-Este projeto está licenciado sob a MIT License.
+   git clone https://github.com/flavio-santos-ti/Carglass.DivisorPrime.Backend.git
