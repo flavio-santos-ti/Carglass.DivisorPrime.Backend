@@ -1,7 +1,5 @@
-<div align="center">
-  <img src="assets/images/logo.png" alt="Logo">
-  <h1>Carglass.DivisorPrime.Api</h1>
-</div>
+# ![Logo](assets/images/logo.png) Carglass.DivisorPrime.Api
+
 ## 📝 Sobre o Projeto
 
 O **Carglass.DivisorPrime.Api** é uma API backend desenvolvida para calcular os divisores e divisores primos de um número informado. O projeto foi estruturado com foco em qualidade, seguindo boas práticas de desenvolvimento, princípios de Clean Code e padrões de design.
